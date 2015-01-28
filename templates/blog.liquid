@@ -1,0 +1,68 @@
+{% paginate blog.articles by settings.blog-articles-per-page %}
+
+<div class="row blog-title">
+  <div class="columns large-12">
+    <h1 class="text">{{ blog.title }}</h1>
+  </div>
+</div>
+
+<div class="left-two-columns-wrapper row">
+  <!-- Begin content -->
+  <div class="articles columns large-9">
+    {% if blog.articles.size <= 0 %}
+      <h2>{{ 'blog.article.no_articles' | t }}</h2>
+    {% endif %}
+
+    {% for article in blog.articles %}
+    <div class="article clearfix">
+      <div class="left-sidebar columns large-3 show-for-large-up">
+        <div class="date block">
+          <h3 class="title">{{ 'blog.article.date' | t }}</h3>
+          <p class="content">{{ article.published_at | date: format: 'month_day_year' }}</p>
+        </div>
+
+        <div class="author block">
+          <h3 class="title">{{ 'blog.article.written_by' | t }}</h3>
+          <p class="content">{{ article.author }}</p>
+        </div>
+
+        {% if article.comments_enabled? %}
+        <div class="comments block">
+            <h3 class="title">{{ 'blog.article.comments' | t }}</h3>
+            {% assign lang_comment = 'blog.article.comment' | t %}
+            {% assign lang_comments = 'blog.article.comments' | t %}
+            <p class="content">{{ article.comments_count }} {{ article.comments_count | pluralize: lang_comment, lang_comments }}</p>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="middle-column columns large-9">
+        <h1 class="title"><a href="{{ article.url }}">{{ article.title }}</a></h1>
+        <p class="mobile-meta show-for-medium-down">
+          {% assign published_date = article.published_at | date: format: 'month_day_year' %}
+          {{ 'blog.article.written_by' | t }} {{ article.author }} - {{ published_date }}
+        </p>
+        <div class="content rte-content colored-links">
+          {{ article.excerpt_or_content }}
+
+          {% if article.excerpt != blank %}
+          <p class="read-more"><a href="{{ article.url }}">{{ 'blog.article.read_more' | t }} <span aria-hidden="true" class="glyph arrow-right"></span></a></p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Begin sidebar -->
+  {% include 'snippet-blog-sidebar' %}
+  <!-- End sidebar -->
+
+</div>
+<!-- End content -->
+<div class="row">
+  <div class="right columns large-6">
+    {% include 'snippet-pagination' %}
+  </div>
+</div>
+{% endpaginate %}

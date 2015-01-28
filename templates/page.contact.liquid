@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="columns">
+    {% include 'snippet-breadcrumbs' %}
+    <h1 class="page-title">{{ page.title }}</h1>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="columns large-4">
+    <div class="page-content rte-content colored-links">
+
+      {{ page.content }}
+    </div>
+  </div>
+
+  <div class="columns large-7 push-1  ">
+    {% form 'contact' %}
+
+      {% if form.posted_successfully? %}
+      <div class="success feedback accent-text">
+        <p>{{ 'contact_page.success_feedback' | t }}</p>
+      </div>
+      {% endif %}
+
+      {% if form.errors %}
+      <div class="error feedback accent-text">
+        <p>{{ 'contact_page.error_feedback' | t }}:</p>
+        <ul>
+        {% for field in form.errors %}
+          <li>{{ field | capitalize | replace: 'Body', 'Message' }} {{ form.errors.messages[field] }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% unless form.posted_successfully? %}
+
+      <p>
+        <label>{{ 'contact_page.name' | t }}:</label>
+        <input type="text" id="contactFormName" name="contact[name]" class="styled-input{% if form.errors contains 'name' %} error{% endif %}" value="{{ contact.fields.name }}" />
+      </p>
+      <p>
+        <label>{{ 'contact_page.email' | t }}:</label>
+        <input required="required" type="email" id="contactFormEmail" name="contact[email]" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+      </p>
+      <p>
+        <label>{{ 'contact_page.phone' | t }}:</label>
+        <input type="tel" id="contactFormTelephone" name="contact[phone]" class="styled-input{% if form.errors contains 'phone' %} error{% endif %}" value="{{ contact.fields.phone }}" />
+      </p>
+      <p>
+        <label>{{ 'contact_page.message' | t }}:</label>
+        <textarea required="required" rows="10" cols="60"  id="contactFormMessage" name="contact[body]" class="styled-input{% if form.errors contains 'body' %} error{% endif %}">{{  contact.fields.body }}</textarea>
+      </p>
+      <p>
+        <input class="button styled-submit" type="submit" id="contactFormSubmit" value="{{ 'contact_page.button' | t }}" />
+      </p>
+
+      {% endunless %}
+
+      {% if form.posted_successfully? or form.errors %}
+        <script>
+          window.location.hash = '#page-content';
+        </script>
+      {% endif %}
+
+    {% endform %}
+
+  </div>
+</div>
+
+
+
+
+

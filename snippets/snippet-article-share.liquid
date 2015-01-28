@@ -1,0 +1,21 @@
+{% capture shareurl %}{{ shop.url }}{{ article.url }}{% endcapture %}
+
+{% if settings.article-share-twitter %}
+  <a class="glyph twitter" href="http://twitter.com/home?status=Check%20out%20this%20{%if template contains "article" or template contains "blog"%}blog%20post{% elsif template contains "product" %}product{%endif%}:+{{ shareurl }}"><span>Tweet</span></a>
+{% endif %}
+
+{% if settings.article-share-facebook %}
+  <a class="glyph facebook" href="http://www.facebook.com/sharer.php?u={{ shareurl }}&t={{ article.title }}"><span>Like</span></a>
+{% endif %}
+
+{% if settings.article-share-pinterest %}
+  <a class="glyph pinterest" href="http://pinterest.com/pin/create/button/?url={{ shareurl }}&description={{ article.content | strip_html | strip_newlines | trim | truncate: 200 | url_escape  }}"><span>Pin</span></a>
+{% endif %}
+
+{% if settings.article-share-tumblr %}
+  <a class="glyph tumblr" href="http://www.tumblr.com/share/link?url={{ shareurl | replace: 'http://', '' }}"><span>Post</span></a>
+{% endif %}
+
+{% if settings.article-share-google %}
+  <a class="glyph googleplus" href="https://plus.google.com/share?url={{ shareurl }}" onclick="javascript:window.open(this.href,  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span>Plus</span></a>
+{% endif %}

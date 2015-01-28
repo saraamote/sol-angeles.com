@@ -1,0 +1,297 @@
+{
+  "date_formats": {
+    "month_day_year": "%B %d %Y"
+  },
+  "general": {
+    "breadcrumbs": {
+      "home": "Home",
+      "collections": "Collections",
+      "product": "product",
+      "products": "products",
+      "account": "account",
+      "register": "register",
+      "addresses": "addresses",
+      "activate_account": "activate_account"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "search": {
+      "page_title": "Search",
+      "placeholder": "Search store...",
+      "results_title_html": "Search results for {{ search_terms }}",
+      "results_size_html": "{{ search_results_size }} results found",
+      "search_placeholder": "Search store..."
+    },
+    "404": {
+      "page_title": "Page not found",
+      "intro": "We're sorry, but the page you're looking for could not be found.",
+      "return_links_html": "Go back to our {{ home_page_link }} or view our range of {{ products_link }}.",
+      "home_page_link": "homepage",
+      "products_link": "products"
+    }
+  },
+  "layout": {
+    "header": {
+      "search_toggle_link": "Search",
+      "search_placeholder": "Search store...",
+      "account_toggle_link": "Account",
+      "account_signed_out_html": "{{ login_link }} or {{ signup_link }}",
+      "account_login_link": "Log in",
+      "account_signup_link": "Sign up",
+      "account_signed_in_html": "{{ view_account_link }} or {{ logout_link }}",
+      "account_view_link": "View account",
+      "account_logout_link": "Log out",
+      "cart": "Cart"
+    },
+    "footer": {
+      "newsletter_title": "Subscribe",
+      "newsletter_subtitle": "Signup to get the latest news...",
+      "newsletter_placeholder": "Your Email",
+      "newsletter_button": "OK",
+      "newsletter_success_message": "Thank you for signing up!"
+    }
+  },
+  "home": {
+    "fullscreen_slider": {
+      "slide_1_title": "Rocking the Block",
+      "slide_1_tagline": "Welcome to the Blockshop theme! To get started, we recommending having a bit more of a read about the theme and it's features.",
+      "slide_1_button": "View Documentation",
+      "slide_2_title": "Customize and conquer!",
+      "slide_2_tagline": "Content is divided in large customizable blocks giving you freedom to adjust layout, colour, typography and UI elements to represent your brand with boldness and clarity.",
+      "slide_2_button": "Read More",
+      "slide_3_title": "Let your products do the talking",
+      "slide_3_tagline": "Clean, minimal product pages with customisable layouts, popup galleries, modal zoom and codeable description tabs for finer detail.",
+      "slide_3_button": "Read More"
+    },
+    "product_slider": {
+      "title": "Featured Products",
+      "no_products_feedback": "This collection is empty.",
+      "no_products_link": "Click here to add some products to it."
+    },
+    "featured_promotion": {
+      "title": "Customizable Widget Blocks",
+      "description": "The Blockshop theme boasts spacious layouts, block colors, bold typography with a minimal user interface that endures trends with simplicity and style. Content is divided into large customizable blocks giving you the freedom to adjust layout, color, typography and UI elements to represent your brand with boldness and clarity. Retina-ready and completely responsive the Blockshop is your one stop shop.",
+      "button": "Read about Widget Blocks"
+    },
+    "hover_block": {
+      "title_1": "Bundled with 4 Presets",
+      "subtitle_1": "View Now",
+      "title_2": "Support Center",
+      "subtitle_2": "Visit Now"
+    },
+    "blog_feed": {
+      "title": "From The Blog",
+      "read_more": "Read more"
+    }
+  },
+  "collections": {
+    "page_title": "Collections",
+    "no_collections_feedback": "There are no collections in your store besides your Frontpage collection.",
+    "no_collections_link": "Create a collection",
+    "tags_title": "Sort by Tags |",
+    "tags_show_all": "All",
+    "no_products_feedback": "You don't have any products yet.",
+    "no_products_link": "Click here to add some",
+    "product": "Product",
+    "products": "Products",
+    "sold_out_html": "Sold<br />Out",
+    "sale": "Sale",
+    "was": "Was",
+    "from": "From"
+  },
+  "products": {
+    "next_item": "Next Item",
+    "previous_item": "Previous Item",
+    "quantity": "Quantity",
+    "was": "was",
+    "add_to_cart": "Add to Cart",
+    "share_this": "Share this",
+    "similar_products": "Similar Products",
+    "sold_out": {
+      "variant": "This variant is currently sold out",
+      "product": "This product is currently sold out.",
+      "form_notification": "Thanks! We will notify you when it becomes available!",
+      "form_description": "Please fill in the form below if you'd like to be notified when it becomes available.",
+      "feedback_invalid_email": "Please provide a valid email address.",
+      "email_placeholder": "Your Email",
+      "email_description": "Please notify me when this is back in stock",
+      "button": "Send"
+    },
+    "recently_added_popup": {
+      "title": "Recently Added",
+      "items": "Items",
+      "total": "Total",
+      "checkout_button": "Go to Checkout",
+      "unavailable": "The item you just added is unavailable. Please select another product or variant."
+    }
+  },
+  "cart": {
+    "page_title": "Your Cart",
+    "quantity": "Quantity",
+    "total": "Total",
+    "continue_shopping": "Continue Shopping",
+    "subtotal": "Subtotal",
+    "estimated_shipping": "Estimated shipping",
+    "update_cart": "Update Cart",
+    "checkout": "Check Out",
+    "order_notes": "Order Notes",
+    "shipping_calculator": {
+      "title": "Shipping Calculator",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Zip/Postal Code",
+      "select": "Please Select",
+      "calculate": "Calculate Shipping",
+      "calculating": "Calculating...",
+      "rates_available": "There are ${rates.length} shipping rates available for ${address}, starting at {{html Shopify.Cart.ShippingCalculator.formatRate(rates[0].price)}}.",
+      "one_rate": "There is one shipping rate available for ${address}.",
+      "no_shipping": "We do not ship to this destination."
+    },
+    "empty": {
+      "cart_feedback": "It appears that your cart is currently empty!",
+      "cart_button": "Continue browsing"
+    }
+  },
+  "blog": {
+    "article": {
+      "no_articles": "No articles found...",
+      "date": "Date",
+      "written_by": "Written By",
+      "comment": "Comment",
+      "comments": "Comments",
+      "read_more": "Read more",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "comment": {
+      "title": "Leave a comment",
+      "moderated_notice": "Comments have to be approved before showing up",
+      "moderated_feedback": "Thank you for your comment. It will have to be approved by the blog owner first before showing up.",
+      "success_feedback": "Thank you, your comment has been posted.",
+      "error": "Not all the fields have been filled out correctly",
+      "your_name": "Your Name",
+      "your_email": "Your Email",
+      "button": "Post Comment"
+    },
+    "sidebar": {
+      "recent_articles": "Recent Articles",
+      "tags": "Tags",
+      "posted_on": "Posted on",
+      "tags_show_all": "All"
+    }
+  },
+  "contact_page": {
+    "success_feedback": "Thanks for contacting us! We'll get back to you as soon as possible.",
+    "error_feedback": "We were unable to send your message, please correct the following:",
+    "name": "Your Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "message": "Message",
+    "button": "Send"
+  },
+  "customer": {
+    "account": {
+      "page_title": "My Account",
+      "order": "Order",
+      "date": "Date",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "no_orders": "You haven't placed any orders yet.",
+      "view_addresses": "View Addresses",
+      "logout": "Logout"
+    },
+    "activate_account": {
+      "page_title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "page_title": "Your Addresses",
+      "default": "(Default Address)",
+      "add_new": "Add a New Address",
+      "edit_address": "Edit address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address1",
+      "address2": "Address2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal/Zip Code",
+      "phone": "Phone",
+      "set_default": "Set as default address?",
+      "add": "Add a new address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "login": {
+      "page_title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "new_account": "Register a New Account",
+      "reset_password": "Reset Password",
+      "reset_instructions": "We will send you an email to reset your password.",
+      "submit": "Submit",
+      "sign_in": "Sign In",
+      "cancel": "Cancel",
+      "guest_title": "Guest login",
+      "guest_continue": "Continue as a guest"
+    },
+    "order": {
+      "page_title": "Order - {{ name }}",
+      "cancelled": "Order Cancelled",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "item": "Item",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "fulfilled_at": "Fulfilled {{ date }}",
+      "subtotal": "Subtotal",
+      "fulfilled": "fulfilled",
+      "unfulfilled": "unfulfilled",
+      "partial": "partial",
+      "paid": "paid",
+      "pending": "pending",
+      "authorized": "authorized",
+      "abandoned": "abandoned",
+      "refunded": "refunded",
+      "voided": "voided"
+    },
+    "register": {
+      "page_title": "Create Account",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create",
+      "login": "Login to an Existing Account"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
+      "disabled": "Disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
+      "print": "Print"
+    }
+  }
+}

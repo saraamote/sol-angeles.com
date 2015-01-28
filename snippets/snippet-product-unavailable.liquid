@@ -1,0 +1,29 @@
+<div class="product-unavailable">
+  {% if product.variants.size > 1 %}
+    <p class="error">{{ 'products.sold_out.variant' | t }}</p>
+  {% else %}
+    <p class="error">{{ 'products.sold_out.product' | t }}</p>
+  {% endif %}
+
+  {% if settings.product-unavailable-form-show %}
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+      <p class="success">{{ 'products.sold_out.form_notification' | t }}</p>
+      {% else %}
+      <p>{{ 'products.sold_out.form_description' | t }}</p>
+      {% endif %}
+      {% if form.errors %}
+      <div class="error feedback">
+        <p>{{ 'products.sold_out.feedback_invalid_email' | t }}</p>
+      </div>
+      {% endif %}
+      {% unless form.posted_successfully? %}
+      <div class="notify-me-wrapper clearfix">
+        <input required="required" type="email" name="contact[email]" placeholder="{{ 'products.sold_out.email_placeholder' | t }}" class="{% if form.errors contains 'email' %} error{% endif %}" value="{{ customer.email }}" />
+        <input type="hidden" class="email-body" name="contact[body]" value="{{ 'products.email_description' | t }}: {{ product.title | escape }}" />
+        <input style="" class="button prefix" type="submit" value="{{ 'products.sold_out.button' | t }}" />
+      </div>
+      {% endunless %}
+    {% endform %}
+  {% endif %}
+</div>

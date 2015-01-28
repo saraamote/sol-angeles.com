@@ -1,0 +1,87 @@
+
+<div class="account-content">
+  <div id="customer-account">
+
+    <div class="row">
+      <div class="columns large-12">
+        <h1 class="page-title clearfix">{{ 'customer.account.page_title' | t }}</h1>
+        {% include 'snippet-breadcrumbs' %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns  large-6">
+        <h2>{{ customer.name }}</h2>
+        <p class="email note">{{ customer.email }}</p>
+      </div>
+      <div class="columns large-6">
+        <h2>Adresses</h2>
+        <div class="address note">
+          {% if customer.default_address != nil %}
+          <p>{{ customer.default_address.address1 }}</p>
+          {% if customer.default_address.address2 != "" %}
+          <p>{{ customer.default_address.address2 }}</p>
+          {% endif %}
+          <p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
+          <p>{{ customer.default_address.zip}}</p>
+          <p>{{ customer.default_address.phone }}</p>
+          {% endif %}
+
+          <p>
+          <a id="view_address" href="/account/addresses">{{ 'customer.account.view_addresses' | t }}</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row large">
+      <div class="columns">
+
+        {% if customer.orders.size != 0 %}
+        <h2>Orders</h2>
+        <table class="responsive">
+          <thead>
+            <tr>
+              <th class="order_number">{{ 'customer.account.order' | t }}</th>
+              <th class="date">{{ 'customer.account.date' | t }}</th>
+              <th class="payment_status">{{ 'customer.account.payment_status' | t }}</th>
+              <th class="fulfillment_status">{{ 'customer.account.fulfillment_status' | t }}</th>
+              <th class="total">{{ 'customer.account.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+            <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+              <td data-label="{{ 'customer.account.order' | t }}">{{ order.name | link_to: order.customer_url }}</td>
+              <td data-label="{{ 'customer.account.date' | t }}"><span class="note">{{ order.created_at | date: format: 'month_day_year' }}</span></td>
+              <td data-label="{{ 'customer.account.payment_status' | t }}"><span class="status_{{ order.financial_status }}">
+                {% assign trans_paid  = 'customer.order.paid' | t %}
+                {% assign trans_pending = 'customer.order.pending' | t %}
+                {% assign trans_authorized = 'customer.order.authorized' | t %}
+                {% assign trans_abandoned = 'customer.order.abandoned' | t %}
+                {% assign trans_refunded = 'customer.order.refunded' | t %}
+                {% assign trans_voided = 'customer.order.voided' | t %}
+                {{ order.financial_status | replace: 'paid', trans_paid | replace: 'pending', trans_pending | replace: 'authorized', trans_authorized | replace: 'abandoned', trans_abandoned | replace: 'refunded', trans_refunded | replace: 'voided', trans_voided }}
+              </span></td>
+              <td data-label="{{ 'customer.account.fulfillment_status' | t }}"><span class="status_{{ order.fulfillment_status }}">
+                {% assign trans_fulfilled = 'customer.order.fulfilled' | t %}
+                {% assign trans_unfulfilled = 'customer.order.unfulfilled' | t %}
+                {% assign trans_partial = 'customer.order.unfulfilled' | t %}
+                {{ order.fulfillment_status | replace: 'unfulfilled', trans_unfulfilled | replace: 'fulfilled',  trans_fulfilled | replace: 'partial', trans_partial }}
+              </span></td>
+              <td data-label="{{ 'customer.account.total' | t }}"><span class="total money">{{ order.total_price | money }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p>{{ 'customer.account.no_orders' | t }}</p>
+        {% endif %}
+
+        <p style="margin-top: 30px;"><span class="note">{{ 'customer.account.logout' | t | customer_logout_link }}</span></p>
+      </div>
+    </div>
+
+  </div>
+</div>

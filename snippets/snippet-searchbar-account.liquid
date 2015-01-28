@@ -1,0 +1,48 @@
+<div class="menu">
+  {% if settings.header-search-show %}
+    <a class="searchbar-open" href="#">{{ 'layout.header.search_toggle_link' | t }}<span aria-hidden="true" class="glyph search"></span></a>
+  {% endif %}
+
+  {% if settings.header-account-show and shop.customer_accounts_enabled %}
+    <a class="account-open" href="#">{{ 'layout.header.account_toggle_link' | t }}<span aria-hidden="true" class="glyph account"></span></a>
+  {% endif %}
+
+</div>
+
+<div class="searchbar-container">
+  <form  action="/search" method="get" role="search">
+    {% if settings.search-products-only %}<input type="hidden" name="type" value="product" />{% endif %}
+    <input name="q" type="text" placeholder="{{ 'layout.header.search_placeholder' | t }}" class="search-box hint text" />
+    {% comment %}<input type="submit" value="" name="submit" aria-hidden="true" class="glyph search"  />{% endcomment %}
+    <button class="glyph search"></button>
+  </form>
+  <a href="#" aria-hidden="true" class="searchbar-close glyph cross"></a>
+</div>
+
+<div class="account-container">
+  {% if customer %}
+    {% assign view_account_link = 'layout.header.account_view_link' | t %}
+    {% capture view_account_link %}<a href="/account">{{ view_account_link }}</a>{% endcapture %}
+    {% assign logout_link = 'layout.header.account_logout_link' | t %}
+    {% assign logout_link = logout_link | customer_logout_link %}
+
+    {{ 'layout.header.account_signed_in_html' | t: view_account_link: view_account_link, logout_link: logout_link  }}
+
+    {% comment %}<a href="/account">View Account (Logged in as {{ customer.first_name }})</a> <span class="separator">|</span> {{ "Logout" | customer_logout_link }}{% endcomment %}
+  {% else %}
+    {% assign login_link = 'layout.header.account_login_link' | t %}
+    {% assign login_link = login_link | customer_login_link %}
+    {% assign signup_link = 'layout.header.account_signup_link' | t %}
+    {% assign signup_link = signup_link | customer_register_link %}
+
+    {% if shop.customer_accounts_optional %}
+      {{ 'layout.header.account_signed_out_html' | t: login_link: login_link, signup_link: signup_link  }}
+    {% else %}
+      {{ login_link }}
+    {% endif %}
+  {% endif %}
+  <a href="#" aria-hidden="true" class="account-close glyph cross"></a>
+</div>
+
+
+

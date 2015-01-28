@@ -1,0 +1,51 @@
+<ul class="breadcrumbs colored-links">
+   <li><a href="/">{{ 'general.breadcrumbs.home' | t }}</a></li>
+   {% if template contains "product" %}
+      {% if collection %}
+       <li><a href="/collections">{{ 'general.breadcrumbs.collections' | t }}</a></li>  <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {% else %}
+       <li><a href="/collections/all">{{ 'general.breadcrumbs.product' | t }}</a></li>
+      {% endif %}
+       <li>{{ product.title }}</li>
+
+   {% elsif template contains "collection" %}
+     {% assign collection_title = collection.title %}
+     {% if collection.handle == 'all' %}
+        {% assign collection_title = 'general.breadcrumbs.products' | t %}
+     {% endif %}
+      <li><a href="/collections">{{ 'general.breadcrumbs.collections' | t }}</a></li>  <li>{% if current_tags %} {{ collection_title | link_to_remove_tag: current_tags.first }} {% else %} {{ collection_title }} {% endif %}</li> {% if current_tags %}  <li>{{ current_tags.first }}</li> {% endif %}
+   {% elsif template contains "blog" %}
+       <li>{{ blog.title }}</li>
+   {% elsif template contains "page" %}
+       <li>{{ page.title }}</li>
+   {% elsif template contains "article" %}
+       <li>{{ blog.title | link_to: blog.url }}</li>
+       <li>{{ article.title }}</li>
+   {% elsif template contains "404" %}
+       <li>404</li>
+   {% elsif template contains "customers/login" %}
+       <li>{{ 'general.breadcrumbs.account' | t }}</li>
+   {% elsif template contains "customers/register" %}
+      <li>{{ 'general.breadcrumbs.register' | t }}</li>
+
+   {% elsif template contains "customers/account" %}
+      <li>{{ 'general.breadcrumbs.account' | t }}</li>
+   {% elsif template contains "customers/addresses" %}
+      <li><a href="/account">{{ 'general.breadcrumbs.account' | t }}</a></li>  <li>{{ 'general.breadcrumbs.addresses' | t }}</li>
+   {% elsif template contains "customers/order" %}
+      <li><a href="/account">{{ 'general.breadcrumbs.account' | t }}</a></li>  <li>{{ page_title }}</li>
+   {% elsif template contains "customers/activate_account" %}
+      <li>{{ 'general.breadcrumbs.activate_account' | t }}</li>
+
+
+    {% comment %} Hidden and unused {% endcomment %}
+    {% elsif template contains "customers/reset_password" %}
+       <li>{{ page_title }}</li>
+    {% elsif template contains "search" %}
+       <li>{{ page_title }}</li>
+    {% elsif template contains "list-collections" %}
+       <li>{{ page_title }}</li>
+    {% elsif template contains "cart" %}
+       <li>{{ page_title }}</li>
+   {% endif %}
+</ul>
