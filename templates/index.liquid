@@ -174,6 +174,25 @@
     </div><!-- #product-slider -->
 
 
+    <!-- bespoke frontpage collection -->
+
+    <section class="row">
+
+      <div class="product-grid clearfix">
+
+        {% for product in collections.current-season.products %}
+
+          {% include 'snippet-product-item' %}
+
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+    <!-- end bespoke frontpage collection -->
+
+
   {% elsif widget_order == 'c' %}
     <div class="widgets">
       <div class="featured-promo">
@@ -371,6 +390,8 @@
         </div>
       </div>
     </div>
+
+
   {% elsif widget_order == 'e' %}
     <div class="widgets">
 
