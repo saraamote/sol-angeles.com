@@ -178,6 +178,12 @@
 
       <div class="bespoke product-grid clearfix">
 
+        {% for title in collection.handle == 'current-season' %}
+
+        <h2 style="text-align: center; color: #000; text-transform: uppercase; font-size: 18px;">{{ collection.title }}</h2>
+
+        {% endfor %}
+
         {% for product in collections.current-season.products %}
 
           {% include 'snippet-product-item' %}
