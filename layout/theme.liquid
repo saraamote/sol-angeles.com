@@ -86,6 +86,37 @@
 <body class="page-{{ page_title | handle }} {% if customer %}customer-logged-in {% endif %}template-{{ template | split: '.' | first | remove: '/' | remove: '_' }}{% if template == 'index' and settings.home-transparent-menu %} transparent-menu{% endif %}">
 
   <header class="main-header">
+
+    {% if template != "index" %}
+
+    <div class="bespoke-logo">
+
+      <h1 class="title clearfix" role="banner">
+
+        {% if settings.header-logo-show %}
+
+        <a href="/" role="banner" title="{{ shop.name }}">
+
+          <img src="{{ 'logo.png' | asset_url }}" data-retina="{{ 'logo-retina.png' | asset_url }}" alt="{{ shop.name }}">
+
+        </a>
+
+        {% else %}
+
+        <a href="/">
+
+          {{ shop.name }}
+
+        </a>
+
+        {% endif %}
+
+      </h1>
+
+    </div>
+
+    {% endif %}
+
     <div class="bg"></div>
     <div class="row top">
       <div class="columns{% if settings.header-logo-center %} logo-center{% endif %}">
