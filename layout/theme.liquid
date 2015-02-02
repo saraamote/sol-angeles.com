@@ -117,6 +117,23 @@
 
     {% endif %}
 
+    <div class="bespoke-social">
+
+    {% if settings.footer-facebook-follow-url.size > 0 %}<a title="Facebook" aria-hidden="true" target="_blank" class="glyph facebook" href="{{ settings.footer-facebook-follow-url }}"></a>{% endif %}
+            {% if settings.footer-twitter-follow-url.size > 0 %}<a title="Twitter" aria-hidden="true" target="_blank" class="glyph twitter" href="{{ settings.footer-twitter-follow-url }}"></a>{% endif %}
+            {% if settings.footer-instagram-follow-url.size > 0 %}<a title="Instagram" aria-hidden="true" target="_blank" class="glyph instagram" href="{{ settings.footer-instagram-follow-url }}"></a>{% endif %}
+            {% if settings.footer-pinterest-follow-url.size > 0 %}<a title="Pinterest" aria-hidden="true" target="_blank" class="glyph pinterest" href="{{ settings.footer-pinterest-follow-url }}"></a>{% endif %}
+            {% if settings.footer-tumblr-follow-url.size > 0 %}<a title="Tumblr" aria-hidden="true" target="_blank" class="glyph tumblr" href="{{ settings.footer-tumblr-follow-url }}"></a>{% endif %}
+            {% if settings.footer-vimeo-follow-url.size > 0 %}<a title="Vimeo" aria-hidden="true" target="_blank" class="glyph vimeo" href="{{ settings.footer-vimeo-follow-url }}"></a>{% endif %}
+            {% if settings.footer-youtube-follow-url.size > 0 %}<a title="Youtube" aria-hidden="true" target="_blank" class="glyph youtube" href="{{ settings.footer-youtube-follow-url }}"></a>{% endif %}
+            {% if settings.footer-google-plus-follow-url.size > 0 %}<a title="Google Plus" aria-hidden="true" target="_blank" class="glyph googleplus" href="{{ settings.footer-google-plus-follow-url }}"></a>{% endif %}
+
+            {% if settings.footer-rss-follow-url.size > 0 %}<a title="RSS" aria-hidden="true" target="_blank" class="glyph feed" href="{{ settings.footer-rss-follow-url }}"></a>{% endif %}
+
+      <a title="search" class="glyph search" href="/search"></a>
+
+    </div>
+
     <div class="bg"></div>
     <div class="row top">
       <div class="columns{% if settings.header-logo-center %} logo-center{% endif %}">

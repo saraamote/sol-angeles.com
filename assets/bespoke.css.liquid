@@ -4,6 +4,32 @@ header
 
 *********/
 
+/* social and search */
+
+.bespoke-social {
+
+  position: absolute;
+  right: 50px;
+  top: 19px;
+
+}
+
+.bespoke-social a {
+
+  vertical-align: middle;
+  color: #777777;
+  font-size: 22px;
+  margin: 0 5px;
+
+}
+
+.bespoke-social a.search {
+
+  font-size: 16px;
+  margin-left: 10px;
+
+}
+
 /* hide default menu */
 
 .main-header .bottom-row .menu-container,
@@ -21,6 +47,12 @@ header
 }
 
 /* mobile menu */
+
+.main-header .mobile-tools a {
+
+  color: #777777;
+
+}
 
 .main-header .mobile-tools {
 
@@ -51,6 +83,12 @@ header
 
 }
 
+.main-header h1.title {
+
+  text-align: center;
+
+}
+
 .bespoke-logo {
 
   position: absolute;
@@ -69,8 +107,6 @@ homepage
 *********/
 
 /* featured collection */
-
-
 
 .bespoke.product-grid {
 
@@ -170,6 +206,20 @@ homepage
 
 }
 
+.bespoke.product-grid .circle.sale span {
+
+  color: #fece00;
+
+}
+
+.bespoke.product-grid .circle.sold-out span {
+
+  color: #999999;
+
+}
+
+
+
 .bespoke.product-grid .circle span {
 
   margin-left: 10px;
@@ -179,12 +229,69 @@ homepage
 
 }
 
+/* instagram widget */
+
+.template-index .instagram-widget .items.wide {
+
+  max-width: none;
+  max-height: none;
+  width: 100%;
+
+}
+
+.template-index .instagram-widget .items .item {
+
+  margin: .25% .5% .5% .5%;
+  max-width: none;
+  width: 15.66%;
+
+}
+
+.template-index .instagram-widget .items .item img {
+
+  width: 100%;
+
+}
+
+.template-index .instagram-widget .items .item:nth-of-type( 1 ) {
+
+  position: absolute;
+  width: 31%;
+
+}
+
+.template-index .instagram-widget .items .item:nth-of-type( 2 ),
+.template-index .instagram-widget .items .item:nth-of-type( 6 ) {
+
+  margin-left: 33.5%;
+
+}
+
+.template-index .instagram-widget .items .item:nth-of-type( 10 ),
+.template-index .instagram-widget .items .item:nth-of-type( 11 ),
+.template-index .instagram-widget .items .item:nth-of-type( 12 ) {
+
+  display: none;
+
+}
 
 /*
 
 media queries
 
 */
+
+/* logo */
+
+@media (max-width: 610px) {
+
+  .main-header h1.title {
+
+    text-align: left;
+
+  }
+
+}
 
 /* frontpage */
 
